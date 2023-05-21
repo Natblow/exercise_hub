@@ -14,3 +14,10 @@ def remove_duplicates(nums)
     end
     nums.delete(nil) # delete all nils from the array and return the length of the array
 end
+
+# Alternative easy solution, thanks to the wonderful Ruby language. Almost same runtime speed & memory usage as the above solution:
+
+def remove_duplicates(nums)
+    nums.uniq!
+    nums.length
+end
