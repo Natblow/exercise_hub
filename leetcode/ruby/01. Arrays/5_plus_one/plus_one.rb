@@ -12,3 +12,19 @@ end
 def plus_one(digits)
     (digits.join.to_i + 1).to_s.chars.map(&:to_i)
 end
+
+# Pointer with modulus solution:
+def plus_one(digits)
+    carryover, pointer = 1, -1
+    
+    while carryover.positive?
+        break digits.unshift(carryover) if digits[pointer].nil?
+        
+        sum = digits[pointer] + carryover
+        carryover = sum / 10
+        digits[pointer] = sum % 10
+        pointer -= 1
+    end
+        
+    digits
+end
