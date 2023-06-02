@@ -31,3 +31,19 @@ As,
 We are following this simple maths logic to get the complete row in **O(N)** time.
 
 Note:- We didnt actually need the variable temp. But the test cases are such that multiplying in one case exceeds the int range, and since we cannot change return type we have to take the **long** data type variable as temporary.
+
+# Code
+
+```ruby
+def get_row(r)
+    return [1] if r==0
+    ans = [1]
+    temp = 1
+    for i in 1...r do
+        temp = temp * (r-i+1)/i
+        ans << temp
+    end
+    ans << 1
+    return ans
+end
+```
